@@ -1,3 +1,3 @@
 # README
 
-David's Food runner backEndApp using ruby rails api
+David's Food runner backend App using ruby rails api
