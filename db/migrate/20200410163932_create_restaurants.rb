@@ -4,7 +4,7 @@ class CreateRestaurants < ActiveRecord::Migration[6.0]
       t.belongs_to :user, null: false, foreign_key: true
       t.string :name
       t.string :address
-      t.integer :contact
+      t.string :contact
       t.string :email
 
       t.timestamps
