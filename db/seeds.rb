@@ -22,3 +22,4 @@ end
  Restaurant.create(name: Faker::Restaurant.name, address:full_address, contact: Faker::PhoneNumber.cell_phone, email:Faker::Internet.email, user_id: rand(1..10) )
 end
 
+# Need to test for api
