@@ -1,4 +1,4 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  has_many :restaurants, through: :users
+  belongs_to :restaurants
 end
