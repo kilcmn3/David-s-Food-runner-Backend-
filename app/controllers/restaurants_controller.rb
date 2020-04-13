@@ -12,7 +12,7 @@ SEARCH_LIMIT = 20
 class RestaurantsController < ApplicationController
     def index
         restaurants = Restaurant.all
-        render json: restaurants
+        render json: restaurants  
     end
 
     def search(location = DEFAULT_LOCATION)
