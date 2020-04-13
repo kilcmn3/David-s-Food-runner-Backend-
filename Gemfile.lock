@@ -67,6 +67,9 @@ GEM
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     faker (2.11.0)
       i18n (>= 1.6, < 2)
@@ -183,7 +186,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
-  dotenv (~> 2.1, >= 2.1.1)
+  dotenv-rails
   faker (~> 2.11)
   http
   image_processing (~> 1.2)

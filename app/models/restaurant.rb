@@ -10,8 +10,8 @@ DEFAULT_LOCATION = "New York"
 SEARCH_LIMIT = 20
 
 class Restaurant < ApplicationRecord
-  belongs_to :user
-  has_many :comments, through: :users
+  has_many :comments
+  has_many :users, through: :comments
   has_many_attached :image
   
   def self.fetch_restaurants(query)
@@ -27,8 +27,7 @@ class Restaurant < ApplicationRecord
         limit: SEARCH_LIMIT
       }
       response = HTTP.auth("Bearer #{API_KEY}").get(url, params: params)
-      datas = response.parse["business"]
-     byebug
+      datas = response.parse["businesses"]
       self.save_database(datas)
       return datas
   end
