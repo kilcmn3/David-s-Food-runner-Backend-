@@ -34,8 +34,10 @@ class Restaurant < ApplicationRecord
 
   def self.save_database(restaurants)
   
-    restaurants.each do |restaurant|
-      Restaurant.find_or_create_by(name: restaurant[:name])
+    restaurants.each do |restaurant| 
+      if !Restaurant.find_by(name: restaurant["name"])
+        Restaurant.create(name: restaurant["name"],location: restaurant["location"],phone: restaurant["phone"] , categories: restaurant["categories"])
+      end
     end
   end
   
