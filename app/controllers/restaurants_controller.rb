@@ -4,7 +4,8 @@ class RestaurantsController < ApplicationController
         render json: restaurants
     end
 
-    def show
-    
+    def search
+        print params
     end
+
 end
