@@ -14,10 +14,11 @@ class Restaurant < ApplicationRecord
   has_many :comments, through: :users
   has_many_attached :image
   
-  def self.fetch_restaurants(params)
+  def self.fetch_restaurants(query)
     location = DEFAULT_LOCATION
-    if params[:q] 
-      term = params[:q]
+    term = DEFAULT_TERM
+    if query
+      term = query
     end  
       url = "#{API_HOST}#{SEARCH_PATH}"
       params = {
@@ -27,11 +28,13 @@ class Restaurant < ApplicationRecord
       }
       response = HTTP.auth("Bearer #{API_KEY}").get(url, params: params)
       datas = response.parse["business"]
+     byebug
       self.save_database(datas)
       return datas
   end
 
   def self.save_database(restaurants)
+  
     restaurants.each do |restaurant|
       Restaurant.find_or_create_by(name: restaurant[:name])
     end

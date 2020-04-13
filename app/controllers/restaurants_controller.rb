@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
     end
 
     def search
-        datas = Restaurant.fetch_restaurants(params)
+        datas = Restaurant.fetch_restaurants(params[:q])
         render json: datas
     end
 end
