@@ -7,7 +7,7 @@ SEARCH_PATH = "/v3/businesses/search"
 
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "New York"
-SEARCH_LIMIT = 5
+SEARCH_LIMIT = 20
 
 class RestaurantsController < ApplicationController
     def index
