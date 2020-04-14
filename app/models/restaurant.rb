@@ -36,7 +36,8 @@ class Restaurant < ApplicationRecord
   
     restaurants.each do |restaurant| 
       if !Restaurant.find_by(name: restaurant["name"])
-        Restaurant.create(name: restaurant["name"],location: restaurant["location"],phone: restaurant["phone"] , categories: restaurant["categories"])
+        print restaurant
+        Restaurant.create(name: restaurant["name"],location: restaurant["location"],phone: restaurant["phone"] , categories: restaurant["categories"], photos: [restaurant["image_url"]])
       end
     end
   end
