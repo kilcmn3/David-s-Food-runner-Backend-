@@ -1,10 +1,15 @@
 class RestaurantsController < ApplicationController
     def index
         restaurants = Restaurant.all
-        render json: restaurants  
+        render json: restaurants
     end
-
-    def search
+    
+    def show
+        restaurant = Restaurant.find_by(id: params[:id])
+        render json: restaurant, include: :comments
+    end
+    
+    def searchas
         datas = Restaurant.fetch_restaurants(params[:q])
         render json: datas
     end

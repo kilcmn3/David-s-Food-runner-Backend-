@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-
     def create
         comment_saved = nil
         # comment = Comment.find_by(user_id: params[:user_id])
         # restaurant = Restaurant.find_by(id: params[:restaurants_id])
         # user = User.find_by(id: params[:user_id])
+        
         if true
             comment_saved = Comment.create(params_comment)
         else
