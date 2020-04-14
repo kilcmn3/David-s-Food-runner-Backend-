@@ -9,7 +9,7 @@ class RestaurantsController < ApplicationController
         render json: restaurant, include: :comments
     end
     
-    def search
+    def searchas
         datas = Restaurant.fetch_restaurants(params[:q])
         render json: datas
     end
