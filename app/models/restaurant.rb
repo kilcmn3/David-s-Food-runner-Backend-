@@ -1,4 +1,5 @@
 require "http"
+require "json"
 
 API_KEY = ENV["YELP_API_KEY"]
 
@@ -36,8 +37,9 @@ class Restaurant < ApplicationRecord
   
     restaurants.each do |restaurant| 
       if !Restaurant.find_by(name: restaurant["name"])
-        print restaurant
-        Restaurant.create(name: restaurant["name"],location: restaurant["location"],phone: restaurant["phone"] , categories: restaurant["categories"], photos: [restaurant["image_url"]])
+        location = restaurant["location"].to_json
+        categories = restaurant["categories"].map{|x| x.to_json}
+        Restaurant.create(name: restaurant["name"],location: location, phone: restaurant["phone"] , categories: categories, photos: [restaurant["image_url"]])
       end
     end
   end
