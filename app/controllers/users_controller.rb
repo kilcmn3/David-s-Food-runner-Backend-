@@ -1,6 +1,20 @@
 class UsersController < ApplicationController
+
+    def login
+        user = User.find_by(email: params["q"])
+
+        if user
+            render json: user
+        elsif
+            render json: {
+                errors: user.erros.full_messages
+            }
+        end
+    end
+    
     def create
-        user = User.find_by(email: params["users"]["email"])
+        user =  User.find_by(email: params["users"]["email"])
+
         if !user
             User.create(params_users)
             render json: {
@@ -18,4 +32,5 @@ class UsersController < ApplicationController
     def params_users
         params.require(:users).permit(:email , :password )
     end
+
 end
