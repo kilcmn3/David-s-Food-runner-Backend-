@@ -14,9 +14,9 @@ require  'faker'
 
 # full_address = Faker::Address.street_address + "," + Faker::Address.city + "," + Faker::Address.state + "," + Faker::Address.zip_code
 
-10.times do 
-    User.create(user_name: Faker::Internet.username, password:'123', name: Faker::Movies::HarryPotter.character, email:Faker::Internet.free_email)
-end
+# 10.times do 
+#     User.create(user_name: Faker::Internet.username, password:'123', name: Faker::Movies::HarryPotter.character, email:Faker::Internet.free_email)
+# end
 
 # 10.times do
 #     Comment.create(comment: Faker::Quote.famous_last_words, user_id: rand(1..10) )
