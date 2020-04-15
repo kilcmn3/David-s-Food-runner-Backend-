@@ -5,5 +5,13 @@ Rails.application.routes.draw do
       get :search, :action => 'search', :as => 'search'
     end
   end
-  resources :comments, :users
+
+  resources :users do
+    collection do 
+      get :login, :action => 'login', :as => 'login'
+    end
+  end
+
+  resources :comments
+  
 end
