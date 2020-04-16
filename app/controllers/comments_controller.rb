@@ -1,24 +1,12 @@
 class CommentsController < ApplicationController
     def create
-        comment_saved = nil
-        # comment = Comment.find_by(user_id: params[:user_id])
-        # restaurant = Restaurant.find_by(id: params[:restaurants_id])
-        # user = User.find_by(id: params[:user_id])
-        
+        comment = nil
         if true
-            comment_saved = Comment.create(params_comment)
+            comment = Comment.create(params_comment)
         else
-            comment_saved = Comment.update(params_comment)    
+            comment = Comment.update(params_comment)    
         end
-
-                
-        if comment_saved.valid?
-            render json: {
-                status: 200
-            }
-        else
-            render json: comment_saved.errors.full_messages
-        end
+            render json: comment
     end
 
     private
