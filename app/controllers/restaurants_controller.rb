@@ -6,9 +6,9 @@ class RestaurantsController < ApplicationController
     
     def show
         restaurant = Restaurant.find_by(id: params[:id])
-        if restaurant.comments.length > 0
+        if restaurant.comments
         render json: restaurant, include: :comments
-        else
+        elsif !restaurant.comments
             render json: restaurant
         end
     end

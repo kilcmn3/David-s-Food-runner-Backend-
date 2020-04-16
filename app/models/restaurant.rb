@@ -28,13 +28,11 @@ class Restaurant < ApplicationRecord
         limit: SEARCH_LIMIT
       }
       response = HTTP.auth("Bearer #{API_KEY}").get(url, params: params)
-      datas = response.parse["businesses"]
-      self.save_database(datas)
+      datas = self.save_database(response.parse["businesses"])
       return datas
   end
 
   def self.save_database(restaurants)
-  
     restaurants.each do |restaurant| 
       if !Restaurant.find_by(name: restaurant["name"])
         location = restaurant["location"].to_json
@@ -42,6 +40,8 @@ class Restaurant < ApplicationRecord
         Restaurant.create(name: restaurant["name"],location: location, phone: restaurant["phone"] , categories: categories, photos: [restaurant["image_url"]])
       end
     end
+    names = restaurants.map{|restaurant| restaurant["name"]}.to_set
+    return Restaurant.all.select{|item| names.include?(item.name)}
   end
   
 end
