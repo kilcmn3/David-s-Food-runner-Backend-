@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_055138) do
     t.bigint "user_id", null: false
     t.bigint "restaurant_id", null: false
     t.string "comment"
+    t.string "user_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["restaurant_id"], name: "index_comments_on_restaurant_id"
