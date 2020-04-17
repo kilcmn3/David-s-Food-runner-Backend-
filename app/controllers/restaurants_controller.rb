@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
     def index
-        restaurants = Restaurant.all
+        restaurants = Restaurant.fetch_restaurants(params[:q])
         render json: restaurants
     end
     

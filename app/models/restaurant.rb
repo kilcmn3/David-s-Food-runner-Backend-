@@ -8,7 +8,7 @@ SEARCH_PATH = "/v3/businesses/search"
 
 DEFAULT_TERM = "dinner"
 DEFAULT_LOCATION = "New York"
-SEARCH_LIMIT = 20
+SEARCH_LIMIT = 30
 
 class Restaurant < ApplicationRecord
   has_many :comments
