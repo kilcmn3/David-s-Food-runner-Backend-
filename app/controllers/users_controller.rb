@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
         if user
             render json: user
-        elsif
+        elsif user == nil
             render json: {
                 errors: user.erros.full_messages
             }
