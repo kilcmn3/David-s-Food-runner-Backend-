@@ -34,17 +34,9 @@ class UsersController < ApplicationController
 
     def update
         user = User.find_by(id: params["q"])
-        duplicate = User.find_by(email: params["users"]["email"])
-        if !duplicate
-            User.update(params_users)
             render json: {
-                status: 200
+                status:200
             }
-        elsif 
-            render json: {
-                errors: user.erros.full_messages
-            }
-        end
     end
     private
 
