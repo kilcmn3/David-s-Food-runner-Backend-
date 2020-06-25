@@ -1,6 +1,6 @@
 Wait or no More Wait App 
 
-# Restaurant Waitlist App - Backend Repository
+# Yelp clone(Restaurant search app) - BackEnd Repository
 
 ### Home Page
 ---
