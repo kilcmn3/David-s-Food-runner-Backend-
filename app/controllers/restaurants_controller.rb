@@ -12,6 +12,11 @@ class RestaurantsController < ApplicationController
             render json: restaurant
         end
     end
+
+    def comments 
+        restaurant = Restaurant.find_by(id: params[:id])
+        render json: restaurant.comments
+    end
     
     def search
         datas = Restaurant.fetch_restaurants(params[:q])

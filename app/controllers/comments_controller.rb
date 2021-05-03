@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
             restaurant = Restaurant.find_by(id: comment.restaurant_id)
             render json: restaurant.comments
     end
+      
     
     def destroy
         comment = Comment.find(params[:id])
