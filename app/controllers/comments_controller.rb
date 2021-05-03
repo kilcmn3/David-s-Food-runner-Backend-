@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
     def create
         comment = nil
-        if true
+        if !comment
             comment = Comment.create(params_comment)
         else
             comment = Comment.update(params_comment)    
         end
-            render json: comment
+            restaurant = Restaurant.find_by(id: comment.restaurant_id)
+            render json: restaurant.comments
     end
     
     def destroy
@@ -20,6 +21,7 @@ class CommentsController < ApplicationController
     private
 
     def params_comment
+ 
         params.require(:comment).permit(:comment , :user_id , :restaurant_id, :user_email )
     end
 end
