@@ -6,7 +6,7 @@ class UsersController < ApplicationController
         if user
             render json: user
         elsif user == nil
-            render json: 1           
+            render json: -1           
         end
     end
     
