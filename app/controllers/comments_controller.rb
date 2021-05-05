@@ -13,16 +13,14 @@ class CommentsController < ApplicationController
     
     def destroy
         comment = Comment.find(params[:id])
+        restaurant = Restaurant.find_by(id: comment.restaurant_id)
         comment.destroy
-        render json: {
-            status: "delete it"
-        }
+        render json: restaurant.comments
     end
 
     private
 
     def params_comment
- 
         params.require(:comment).permit(:comment , :user_id , :restaurant_id, :user_email )
     end
 end
